@@ -200,7 +200,6 @@ def page_nelson_siegel():
         # === Créer un graphique pour chaque type de titre ===
         fig, ax = plt.subplots(figsize=(10, 5))
         ax.plot(x_vals, y_vals, color=couleurs[titre], label=f"Courbe estimée {titre}", linewidth=2)
-        ax.scatter(maturities, yields, color=couleurs[titre], edgecolor='black', alpha=0.7, label="Données réelles")
         ax.set_title(f"Courbe des taux - {titre}", fontsize=14, fontweight='bold')
         ax.set_xlabel("Maturité (années)", fontsize=12)
         ax.set_ylabel("Rendement (%)", fontsize=12)
