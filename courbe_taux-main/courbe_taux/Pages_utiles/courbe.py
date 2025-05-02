@@ -8,7 +8,7 @@ import seaborn as sns
 import plotly.express as px
 import plotly.graph_objects as go
 from Datas.data_link import data_dir
-path=data_dir("tableau de suivi Emissions CEMAC au 10 avril 2025 (1) - Copy.xlsm")
+path=data_dir("base_gt.xlsx")#("tableau de suivi Emissions CEMAC au 10 avril 2025 (1) - Copy.xlsm")
 data=pd.read_excel(path, sheet_name='Data', engine='openpyxl', header=0)
 # 🔵 Page Nelson-Siegel
 def page_nelson_siegel():
