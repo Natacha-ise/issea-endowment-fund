@@ -12,30 +12,50 @@ path=data_dir("base_gt.xlsx")#("tableau de suivi Emissions CEMAC au 10 avril 202
 data=pd.read_excel(path, sheet_name='Data', engine='openpyxl', header=0)
 # 🔵 Page Nelson-Siegel
 def page_nelson_siegel():
-    st.markdown("""
-    <h1 style='text-align: center; color: #2E86C1;'>
+    # 💡 Titre avec bleu clair inspiré de la CEMAC
+st.markdown("""
+    <h1 style='text-align: center; color: #3399FF;'>
     📈 ISSEA Endowment Fund<br>Courbe des taux Nelson-Siegel
     </h1>
     """, unsafe_allow_html=True)
-    # 🎨 Style CSS
-    st.markdown("""
-        <style>
-            .main {
-                background-color: #0f1117;
-                color: white;
-            }
-            .stButton>button {
-                background-color: #228B22;
-                color: white;
-            }
-            .stSelectbox, .stSlider {
-                background-color: #1c1e24;
-            }
-            h1, h2 {
-                color: #32CD32;
-            }
-        </style>
-        """, unsafe_allow_html=True)
+
+# 🎨 Style CSS plus clair
+st.markdown("""
+    <style>
+        .main {
+            background-color: #f4f9ff;
+            color: #1a1a1a;
+        }
+        h1, h2 {
+            color: #3399FF; /* Bleu clair CEMAC */
+        }
+        .stButton>button {
+            background-color: #66BB6A; /* Vert clair */
+            color: white;
+            border-radius: 10px;
+            padding: 0.6em 1.2em;
+            border: none;
+            font-weight: bold;
+        }
+        .stButton>button:hover {
+            background-color: #81C784;
+            transition: 0.3s ease-in-out;
+        }
+        .stSelectbox, .stSlider {
+            background-color: #e8f5e9;
+            border-radius: 8px;
+            color: #1a1a1a;
+        }
+        .css-1d391kg, .css-1cpxqw2 {  /* Conteneurs Streamlit */
+            background-color: #ffffff !important;
+            color: #1a1a1a !important;
+            border-radius: 12px;
+            padding: 1em;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+    """, unsafe_allow_html=True)
+
 
     # === Chargement des données ===
     # Fonction pour charger et filtrer les colonnes à partir de AA
