@@ -111,17 +111,18 @@ def page_nelson_siegel():
     tout_selectionner = "Tout sélectionner"
 
     # Filtres interactifs
-    st.markdown("<span style='color: white;'>Choisir l’année :</span>", unsafe_allow_html=True)
+    st.markdown("<span style='color: black;'>Choisir l’année :</span>", unsafe_allow_html=True)
     année_selection = st.selectbox("", [tout_selectionner] + années)
 
-    st.markdown("<span style='color: white;'>Choisir le mois :</span>", unsafe_allow_html=True)
+    st.markdown("<span style='color: black;'>Choisir le mois :</span>", unsafe_allow_html=True)
     mois_selection = st.selectbox("", [tout_selectionner] + mois)
 
-    st.markdown("<span style='color: white;'>Choisir le(s) pays :</span>", unsafe_allow_html=True)
+    st.markdown("<span style='color: black;'>Choisir le(s) pays :</span>", unsafe_allow_html=True)
     pays_selection = st.multiselect("", [tout_selectionner] + pays)
 
-    st.markdown("<span style='color: white;'>Choisir le(s) type(s) d’obligation :</span>", unsafe_allow_html=True)
+    st.markdown("<span style='color: black;'>Choisir le(s) type(s) d’obligation :</span>", unsafe_allow_html=True)
     type_selection = st.multiselect("", [tout_selectionner] + types)
+
 
     # Gestion des sélections
     if année_selection == tout_selectionner:
