@@ -98,10 +98,10 @@ def page_nelson_siegel():
     mois_selection = st.selectbox("", [tout_selectionner] + mois)
 
     st.markdown("<span style='color: white;'>Choisir le(s) pays :</span>", unsafe_allow_html=True)
-    pays_selection = st.multiselect("", [tout_selectionner] + pays, default=pays)
+    pays_selection = st.multiselect("", [tout_selectionner] + pays)
 
     st.markdown("<span style='color: white;'>Choisir le(s) type(s) d’obligation :</span>", unsafe_allow_html=True)
-    type_selection = st.multiselect("", [tout_selectionner] + types, default=types)
+    type_selection = st.multiselect("", [tout_selectionner] + types)
 
     # Gestion des sélections
     if année_selection == tout_selectionner:
