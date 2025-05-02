@@ -13,14 +13,14 @@ data=pd.read_excel(path, sheet_name='Data', engine='openpyxl', header=0)
 # 🔵 Page Nelson-Siegel
 def page_nelson_siegel():
     # 💡 Titre avec bleu clair inspiré de la CEMAC
-st.markdown("""
+    st.markdown("""
     <h1 style='text-align: center; color: #3399FF;'>
     📈 ISSEA Endowment Fund<br>Courbe des taux Nelson-Siegel
     </h1>
     """, unsafe_allow_html=True)
 
-# 🎨 Style CSS plus clair
-st.markdown("""
+    # 🎨 Style CSS plus clair
+    st.markdown("""
     <style>
         .main {
             background-color: #f4f9ff;
@@ -53,8 +53,8 @@ st.markdown("""
             padding: 1em;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
-    </style>
-    """, unsafe_allow_html=True)
+        </style>
+        """, unsafe_allow_html=True)
 
 
     # === Chargement des données ===
