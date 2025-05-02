@@ -158,6 +158,7 @@ def page_nelson_siegel():
         st.stop()
 
     # === Modèle de Nelson-Siegel ===
+    # === Modèle de Nelson-Siegel ===
     def nelson_siegel(params, maturities):
         beta0, beta1, beta2, tau = params
         m = maturities
@@ -175,12 +176,12 @@ def page_nelson_siegel():
         result = minimize(objective_function, initial_params, args=(maturities, yields), bounds=bounds)
         return result.x
 
-    # === Tracer les courbes ===
-    plt.figure(figsize=(10, 6))
-    couleurs = {'BTA': 'blue', 'OTA': 'green'}
-    titres = df_filtré["Titre"].unique()
-    
-    
+    # === Couleurs CEMAC ===
+    couleurs = {'BTA': '#007E3A', 'OTA': '#FFD100'}  # Vert et jaune
+
+    # === Tracer une courbe par type de titre ===
+    titres = ['BTA', 'OTA']  # uniquement les deux types
+
     for titre in titres:
         sous_df = df_filtré[df_filtré["Titre"] == titre]
         if sous_df.empty:
@@ -196,14 +197,13 @@ def page_nelson_siegel():
         x_vals = np.linspace(0.1, max(maturities) + 1, 100)
         y_vals = nelson_siegel(params, x_vals)
 
-        plt.plot(x_vals, y_vals, label=f"Courbe {titre}", color=couleurs.get(titre, 'gray'))
-        plt.scatter(maturities, yields, color=couleurs.get(titre, 'gray'), alpha=0.6)
-
-    plt.title(f"Courbes estimées")
-    plt.xlabel("Maturité (années)")
-    plt.ylabel("Rendement (%)")
-    plt.legend()
-    plt.grid(True)
-
-    st.subheader("Courbes estimées")
-    st.pyplot(plt)
+        # === Créer un graphique pour chaque type de titre ===
+        fig, ax = plt.subplots(figsize=(10, 5))
+        ax.plot(x_vals, y_vals, color=couleurs[titre], label=f"Courbe estimée {titre}", linewidth=2)
+        ax.scatter(maturities, yields, color=couleurs[titre], edgecolor='black', alpha=0.7, label="Données réelles")
+        ax.set_title(f"Courbe des taux - {titre}", fontsize=14, fontweight='bold')
+        ax.set_xlabel("Maturité (années)", fontsize=12)
+        ax.set_ylabel("Rendement (%)", fontsize=12)
+        ax.legend()
+        ax.grid(True, linestyle="--", alpha=0.5)
+        st.pyplot(fig)
